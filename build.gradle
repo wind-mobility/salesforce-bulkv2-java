@@ -23,3 +23,22 @@ java {
     withJavadocJar()
     withSourcesJar()
 }
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            pom {
+                name = 'Simple Salesforce Bulk 2 API client library'
+            }
+        }
+    }
+    repositories {
+        maven {
+            credentials {
+                username = "${System.env.NEXUS_USERNAME}"
+                password = "${System.env.NEXUS_PASSWORD}"
+            }
+            url = 'https://nexus.repo.bi-wind.co/repository/maven-releases/'
+        }
+    }
+}
