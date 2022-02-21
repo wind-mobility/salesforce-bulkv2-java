@@ -20,7 +20,7 @@ public class Bulk2Client {
 
     private static final Logger log = LoggerFactory.getLogger(Bulk2Client.class);
 
-    private static final String API_VERSION = "v41.0";
+    private static final String API_VERSION = "v54.0";
 
     private final RestRequester requester;
 
