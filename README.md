@@ -25,6 +25,20 @@ Bulk2Client client = new Bulk2ClientBuilder()
         .build();
 ```
 
+Another way is to create client with already fetched session ID:
+
+```java
+ConnectorConfig config = new ConnectorConfig();
+config.setUsername("etl@wind.co.partial");
+config.setPassword("KdWmECj7,6MS,9?2kSgtI5x8MLC7fek73yk0yl7G");
+config.setServiceEndpoint("https://test.salesforce.com/services/Soap/u/54.0");
+config.setAuthEndpoint("https://test.salesforce.com/services/Soap/u/54.0");
+PartnerConnection connection = Connector.newConnection(config);
+Bulk2Client client = new Bulk2ClientBuilder()
+        .withSessionId(connection.getConfig().getSessionId(), "<instanceURL>")
+        .build();
+```
+
 ### Upload CSV data using a separate request
 
 ```java
