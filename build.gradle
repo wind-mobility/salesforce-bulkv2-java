@@ -4,6 +4,7 @@ plugins {
 }
 
 group 'co.wind'
+name
 version '1.0'
 
 repositories {
@@ -28,7 +29,8 @@ publishing {
     publications {
         maven(MavenPublication) {
             pom {
-                name = 'Simple Salesforce Bulk 2 API client library'
+                name = 'Bulk 2 API client'
+                description = 'Simple Salesforce Bulk 2 API Java client library'
             }
         }
     }
