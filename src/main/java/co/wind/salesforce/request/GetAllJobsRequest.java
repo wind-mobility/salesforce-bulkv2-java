@@ -1,7 +1,7 @@
-package endolabs.salesforce.bulkv2.request;
+package co.wind.salesforce.request;
 
-import endolabs.salesforce.bulkv2.type.ConcurrencyModeEnum;
-import endolabs.salesforce.bulkv2.type.JobTypeEnum;
+import co.wind.salesforce.type.ConcurrencyModeEnum;
+import co.wind.salesforce.type.JobTypeEnum;
 
 import java.util.HashMap;
 import java.util.Map;

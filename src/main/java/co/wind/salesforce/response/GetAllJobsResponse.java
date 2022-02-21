@@ -1,4 +1,4 @@
-package endolabs.salesforce.bulkv2.response;
+package co.wind.salesforce.response;
 
 import java.util.List;
 

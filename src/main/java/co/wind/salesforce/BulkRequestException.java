@@ -1,13 +1,12 @@
-package endolabs.salesforce.bulkv2;
+package co.wind.salesforce;
 
-import endolabs.salesforce.bulkv2.response.ErrorResponse;
+import co.wind.salesforce.response.ErrorResponse;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.joining;
 
 public class BulkRequestException extends RuntimeException {
-
-    private List<ErrorResponse> errors;
 
     public BulkRequestException(String message, Throwable cause) {
         super(message, cause);
@@ -22,6 +21,6 @@ public class BulkRequestException extends RuntimeException {
     }
 
     public BulkRequestException(List<ErrorResponse> errors) {
-        super(errors.stream().map(e -> e.toString()).collect(Collectors.joining(", ", "[ ", " ]")));
+        super(errors.stream().map(ErrorResponse::toString).collect(joining(", ", "[ ", " ]")));
     }
 }

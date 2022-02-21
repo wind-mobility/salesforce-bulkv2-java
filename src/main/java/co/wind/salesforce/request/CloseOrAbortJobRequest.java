@@ -1,6 +1,6 @@
-package endolabs.salesforce.bulkv2.request;
+package co.wind.salesforce.request;
 
-import endolabs.salesforce.bulkv2.type.JobStateEnum;
+import co.wind.salesforce.type.JobStateEnum;
 
 public class CloseOrAbortJobRequest {
 

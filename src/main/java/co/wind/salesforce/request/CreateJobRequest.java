@@ -1,10 +1,10 @@
-package endolabs.salesforce.bulkv2.request;
+package co.wind.salesforce.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import endolabs.salesforce.bulkv2.type.ColumnDelimiterEnum;
-import endolabs.salesforce.bulkv2.type.ContentTypeEnum;
-import endolabs.salesforce.bulkv2.type.LineEndingEnum;
-import endolabs.salesforce.bulkv2.type.OperationEnum;
+import co.wind.salesforce.type.ColumnDelimiterEnum;
+import co.wind.salesforce.type.ContentTypeEnum;
+import co.wind.salesforce.type.LineEndingEnum;
+import co.wind.salesforce.type.OperationEnum;
 
 import java.io.File;
 

@@ -1,12 +1,12 @@
-package endolabs.salesforce.bulkv2.response;
+package co.wind.salesforce.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import endolabs.salesforce.bulkv2.type.ColumnDelimiterEnum;
-import endolabs.salesforce.bulkv2.type.ConcurrencyModeEnum;
-import endolabs.salesforce.bulkv2.type.JobStateEnum;
-import endolabs.salesforce.bulkv2.type.JobTypeEnum;
-import endolabs.salesforce.bulkv2.type.LineEndingEnum;
-import endolabs.salesforce.bulkv2.type.OperationEnum;
+import co.wind.salesforce.type.ColumnDelimiterEnum;
+import co.wind.salesforce.type.ConcurrencyModeEnum;
+import co.wind.salesforce.type.JobStateEnum;
+import co.wind.salesforce.type.JobTypeEnum;
+import co.wind.salesforce.type.LineEndingEnum;
+import co.wind.salesforce.type.OperationEnum;
 
 public class JobInfo {
 

@@ -1,4 +1,4 @@
-package endolabs.salesforce.bulkv2.type;
+package co.wind.salesforce.type;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -27,7 +27,7 @@ public enum JobStateEnum {
     IN_PROGRESS("InProgress"),
 
     /**
-     * The job has been aborted. You can abort a job if you created it or if you have the “Manage Data Integrations” permission.
+     * The job has been aborted. You can abort a job if you created it or if you have the "Manage Data Integrations" permission.
      */
     ABORTED("Aborted"),
 
@@ -41,7 +41,7 @@ public enum JobStateEnum {
      */
     FAILED("Failed");
 
-    private static EnumSet<JobStateEnum> FINISHED_STATUS = EnumSet.of(JOB_COMPLETE, FAILED, ABORTED);
+    private static final EnumSet<JobStateEnum> FINISHED_STATUS = EnumSet.of(JOB_COMPLETE, FAILED, ABORTED);
 
     private final String value;
 

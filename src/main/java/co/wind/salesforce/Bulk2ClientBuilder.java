@@ -1,13 +1,6 @@
-package endolabs.salesforce.bulkv2;
+package co.wind.salesforce;
 
-import okhttp3.FormBody;
-import okhttp3.HttpUrl;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
+import okhttp3.*;
 import okhttp3.logging.HttpLoggingInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,8 +42,7 @@ public class Bulk2ClientBuilder {
         return this;
     }
 
-    public Bulk2Client build()
-            throws IOException {
+    public Bulk2Client build() {
         AccessToken token = accessTokenSupplier.get();
 
         OkHttpClient client = new OkHttpClient.Builder()
@@ -102,7 +94,7 @@ public class Bulk2ClientBuilder {
     }
 
     private HttpLoggingInterceptor httpLoggingInterceptor(HttpLoggingInterceptor.Level level) {
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor(message -> log.info(message));
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor(log::info);
         logging.setLevel(level);
 
         return logging;

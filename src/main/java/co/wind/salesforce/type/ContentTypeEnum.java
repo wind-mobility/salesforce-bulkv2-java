@@ -1,4 +1,4 @@
-package endolabs.salesforce.bulkv2.type;
+package co.wind.salesforce.type;
 
 /**
  * only CSV supported

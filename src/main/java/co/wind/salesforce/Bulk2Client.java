@@ -1,24 +1,16 @@
-package endolabs.salesforce.bulkv2;
+package co.wind.salesforce;
 
-import endolabs.salesforce.bulkv2.request.CloseOrAbortJobRequest;
-import endolabs.salesforce.bulkv2.request.CreateJobRequest;
-import endolabs.salesforce.bulkv2.request.GetAllJobsRequest;
-import endolabs.salesforce.bulkv2.response.CloseOrAbortJobResponse;
-import endolabs.salesforce.bulkv2.response.CreateJobResponse;
-import endolabs.salesforce.bulkv2.response.GetAllJobsResponse;
-import endolabs.salesforce.bulkv2.response.GetJobInfoResponse;
-import endolabs.salesforce.bulkv2.response.JobInfo;
-import endolabs.salesforce.bulkv2.type.JobStateEnum;
-import endolabs.salesforce.bulkv2.type.OperationEnum;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import co.wind.salesforce.request.CloseOrAbortJobRequest;
+import co.wind.salesforce.request.CreateJobRequest;
+import co.wind.salesforce.request.GetAllJobsRequest;
+import co.wind.salesforce.response.*;
+import co.wind.salesforce.type.JobStateEnum;
+import co.wind.salesforce.type.OperationEnum;
 
 import java.io.Reader;
 import java.util.function.Consumer;
 
 public class Bulk2Client {
-
-    private static final Logger log = LoggerFactory.getLogger(Bulk2Client.class);
 
     private static final String API_VERSION = "v54.0";
 

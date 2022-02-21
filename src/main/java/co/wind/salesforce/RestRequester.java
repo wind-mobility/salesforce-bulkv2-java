@@ -1,16 +1,9 @@
-package endolabs.salesforce.bulkv2;
+package co.wind.salesforce;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import endolabs.salesforce.bulkv2.request.CreateJobRequest;
-import endolabs.salesforce.bulkv2.response.ErrorResponse;
-import okhttp3.HttpUrl;
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
+import co.wind.salesforce.request.CreateJobRequest;
+import co.wind.salesforce.response.ErrorResponse;
+import okhttp3.*;
 import okio.ByteString;
 
 import java.io.IOException;
@@ -28,7 +21,6 @@ public class RestRequester {
     private static final MediaType CSV_MEDIA_TYPE = MediaType.parse("text/csv");
 
     private static final TypeReference<List<ErrorResponse>> ERRORS_TYPE_REFERENCE = new TypeReference<List<ErrorResponse>>() {
-
     };
 
     private final OkHttpClient client;

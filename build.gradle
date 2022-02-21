@@ -1,17 +1,27 @@
-apply plugin: 'java'
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group 'co.wind'
+version '1.0'
 
 repositories {
-    jcenter()
     mavenCentral()
-    google()
 }
 
 dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.14.2'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.14.2'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.9'
-    implementation 'org.slf4j:slf4j-api:1.7.26'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.1'
+    implementation 'org.slf4j:slf4j-api:1.7.36'
     implementation 'ch.qos.logback:logback-classic:1.2.3'
+    implementation 'com.force.api:force-partner-api:54.0.0'
 
     testImplementation 'junit:junit:4.12'
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
 }
