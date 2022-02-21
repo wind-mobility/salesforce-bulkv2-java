@@ -70,7 +70,6 @@ public class Bulk2ClientBuilder {
                 .build();
 
         OkHttpClient client = new OkHttpClient().newBuilder()
-                // .addInterceptor(new SigningInterceptor(consumer))
                 .addInterceptor(httpLoggingInterceptor(HttpLoggingInterceptor.Level.BASIC))
                 .build();
 
