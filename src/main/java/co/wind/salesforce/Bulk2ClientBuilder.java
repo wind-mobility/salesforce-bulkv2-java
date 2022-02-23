@@ -12,11 +12,7 @@ public class Bulk2ClientBuilder {
 
     private static final Logger log = LoggerFactory.getLogger(Bulk2ClientBuilder.class);
 
-    private static final String TOKEN_REQUEST_ENDPOINT = "https://login.salesforce.com/services/oauth2/token";
-
-    private static final String TOKEN_REQUEST_ENDPOINT_SANDBOX = "https://test.salesforce.com/services/oauth2/token";
-
-    private boolean useSandbox;
+    private Environment environment = Environment.PRODUCTION;
 
     private Supplier<AccessToken> accessTokenSupplier;
 
@@ -38,7 +34,7 @@ public class Bulk2ClientBuilder {
     }
 
     public Bulk2ClientBuilder useSandbox() {
-        this.useSandbox = true;
+        this.environment = Environment.SANDBOX;
         return this;
     }
 
@@ -53,8 +49,7 @@ public class Bulk2ClientBuilder {
     }
 
     private AccessToken getAccessTokenUsingPassword(String consumerKey, String consumerSecret, String username, String password) {
-        String endpoint = useSandbox ? TOKEN_REQUEST_ENDPOINT_SANDBOX : TOKEN_REQUEST_ENDPOINT;
-        HttpUrl authorizeUrl = HttpUrl.parse(endpoint).newBuilder().build();
+        HttpUrl authorizeUrl = HttpUrl.parse(environment.getAuthUrl()).newBuilder().build();
 
         RequestBody requestBody = new FormBody.Builder()
                 .add("grant_type", "password")
