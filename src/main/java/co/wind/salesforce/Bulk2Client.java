@@ -90,7 +90,6 @@ public class Bulk2Client {
             }
             boolean timeout = System.currentTimeMillis() - millisecondsStart > timeoutDuration.toMillis();
             if (timeout) {
-                abortJob(jobId);
                 throw new TimeoutException("Failed to finish job after " + timeoutDuration);
             }
             TimeUnit.SECONDS.sleep(1);
