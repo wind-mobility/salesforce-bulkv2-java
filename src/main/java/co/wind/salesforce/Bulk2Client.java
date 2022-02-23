@@ -8,6 +8,7 @@ import co.wind.salesforce.type.JobStateEnum;
 import co.wind.salesforce.type.OperationEnum;
 
 import java.io.Reader;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
 public class Bulk2Client {
@@ -75,6 +76,16 @@ public class Bulk2Client {
         String url = buildUrl("/services/data/vXX.X/jobs/ingest/" + jobId);
 
         return requester.get(url, GetJobInfoResponse.class);
+    }
+
+    public void waitForJobToComplete(String jobId) throws InterruptedException {
+        while (true) {
+            GetJobInfoResponse jobInfo = getJobInfo(jobId);
+            if (jobInfo.isFinished()) {
+                break;
+            }
+            TimeUnit.SECONDS.sleep(1);
+        }
     }
 
     public Reader getJobSuccessfulRecordResults(String jobId) {
