@@ -8,7 +8,9 @@ import co.wind.salesforce.type.JobStateEnum;
 import co.wind.salesforce.type.OperationEnum;
 
 import java.io.Reader;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.function.Consumer;
 
 public class Bulk2Client {
@@ -78,11 +80,18 @@ public class Bulk2Client {
         return requester.get(url, GetJobInfoResponse.class);
     }
 
-    public void waitForJobToComplete(String jobId) throws InterruptedException {
+    public void waitForJobToComplete(String jobId, Duration timeoutDuration)
+            throws InterruptedException, TimeoutException {
+        long millisecondsStart = System.currentTimeMillis();
         while (true) {
             GetJobInfoResponse jobInfo = getJobInfo(jobId);
             if (jobInfo.isFinished()) {
                 break;
+            }
+            boolean timeout = System.currentTimeMillis() - millisecondsStart > timeoutDuration.toMillis();
+            if (timeout) {
+                abortJob(jobId);
+                throw new TimeoutException("Failed to finish job after " + timeoutDuration);
             }
             TimeUnit.SECONDS.sleep(1);
         }
