@@ -14,4 +14,8 @@ public enum Environment {
     public String getAuthUrl() {
         return url + "services/oauth2/token";
     }
+
+    public String getSoapUrl() {
+        return url + "services/Soap/u/54.0";
+    }
 }
